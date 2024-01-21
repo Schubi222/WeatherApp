@@ -3,14 +3,15 @@
 	import Error from '$lib/components/Error.svelte';
 	import { onMount } from 'svelte';
 	import { error_layout, loading_layout } from '$lib/store/layoutStore';
-
-	onMount(() => {});
+	import '$lib/style/mixins.scss';
+	import '$lib/style/Global.scss';
+	import '$lib/style/Variables.scss';
 </script>
 
-{#if $error_layout}
+{#if $error_layout !== ''}
 	<Error bind:error={$error_layout} />
 {:else if $loading_layout}
-	<Loading />
+	<Loading text="Loading..." />
 {:else}
 	<slot />
 {/if}

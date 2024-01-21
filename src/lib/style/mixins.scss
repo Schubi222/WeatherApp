@@ -1,0 +1,9 @@
+@mixin full-width-height{
+  height: 100%;
+  width: 100%;
+}
+@mixin flex-center{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
