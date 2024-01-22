@@ -6,6 +6,7 @@
 	import '$lib/style/mixins.scss';
 	import '$lib/style/Global.scss';
 	import '$lib/style/Variables.scss';
+	import '../app.css';
 </script>
 
 {#if $error_layout !== ''}
