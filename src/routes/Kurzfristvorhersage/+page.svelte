@@ -4,4 +4,6 @@
 	$: console.log($current_data_kv);
 </script>
 
-<div>KV</div>
+{#if $current_data_kv}
+	<div>{Object.values($current_data_kv.features[0].properties.parameters.mnt2m)}</div>
+{/if}
