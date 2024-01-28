@@ -1,13 +1,14 @@
 export type ResultKV = {
 	features: Array<FeaturesKV>;
+	timestamps: Array<string>;
 };
-type PointKV = [lat: number, long: number];
-type ParameterKV = {
+export type PointKV = [lat: number, long: number];
+export type ParameterKV = {
 	name: string;
 	unit: string;
-	data: [];
+	data: [number | null];
 };
-type FeaturesKV = {
+export type FeaturesKV = {
 	type: string;
 	geometry: {
 		type: string;
@@ -18,7 +19,7 @@ type FeaturesKV = {
 	};
 };
 //TODO:THINK OF HOW THIS SHOULD WORK WITH CHANGING NAMES?
-enum ParameterNames {
+export enum ParameterNames {
 	mnt2m = 'mnt2m',
 	mxt2m = 'mxt2m',
 	rh2m = 'rh2m',
@@ -33,3 +34,4 @@ enum ParameterNames {
 type ParameterNamesKV = {
 	[key in ParameterNames]: ParameterKV;
 };
+export type ParameterNamesKVStrings = keyof typeof ParameterNames;
