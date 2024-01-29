@@ -2,11 +2,24 @@
 	import { current_data_kv } from '$lib/store/KurzfristforhersageStore';
 	import type { FeaturesKV, ParameterNamesKVStrings } from '$lib/type/Kurzfrist';
 	import { ParameterNames } from '$lib/type/Kurzfrist';
+	import { getDDMonthFromUnix, getTimeFomUnix } from '$lib/utils/Time/timeFormat';
 
+	const dates: number[] = [];
 	$: console.log($current_data_kv);
+	$: if ($current_data_kv?.timestamps?.length) {
+		calculateDate();
+	}
+
+	const calculateDate = () => {
+		$current_data_kv.timestamps.forEach((timestamp) => dates.push(Date.parse(timestamp) / 1000));
+		dates.sort((a, b) => (a > b ? 1 : -1));
+		console.log(dates);
+	};
+
 	/*	$: if ($current_data_kv) {
 		console.log(Date.parse($current_data_kv.timestamps[0]));
 	}*/
+
 	const getDataAndUnit = (feature: FeaturesKV, param: ParameterNamesKVStrings, index: number) => {
 		if (
 			!param ||
@@ -32,9 +45,12 @@
 </script>
 
 {#if $current_data_kv}
-	{#each $current_data_kv.features[0].properties.parameters.mnt2m.data as data, index}
+	{#each $current_data_kv.timestamps as _, index}
 		<div>
-			{$current_data_kv.timestamps[index]}
+			{#if getTimeFomUnix(dates[index]) === '00:00'}
+				<div>{getDDMonthFromUnix(dates[index])}</div>
+			{/if}
+			{getTimeFomUnix(dates[index])}
 			{#each Object.values(ParameterNames) as parameter}
 				{getDataAndUnit($current_data_kv.features[0], parameter, index) + ' '}
 			{/each}
