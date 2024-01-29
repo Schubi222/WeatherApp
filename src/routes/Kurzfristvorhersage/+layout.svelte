@@ -66,6 +66,10 @@
 	});
 </script>
 
+<svelete:head>
+	<title>Weather App | Kurzfristvorhersage</title>
+</svelete:head>
+
 {#if error}
 	<Error bind:error={$error_layout} />
 {:else if loading}
