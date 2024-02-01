@@ -45,15 +45,17 @@
 </script>
 
 {#if $current_data_kv}
-	{#each $current_data_kv.timestamps as _, index}
-		<div>
-			{#if getTimeFomUnix(dates[index]) === '00:00'}
-				<div>{getDDMonthFromUnix(dates[index])}</div>
-			{/if}
-			{getTimeFomUnix(dates[index])}
-			{#each Object.values(ParameterNames) as parameter}
-				{getDataAndUnit($current_data_kv.features[0], parameter, index) + ' '}
-			{/each}
-		</div>
-	{/each}
+	<div class="flex flex-col mx-auto container">
+		{#each $current_data_kv.timestamps as _, index}
+			<div>
+				{#if getTimeFomUnix(dates[index]) === '00:00'}
+					<div>{getDDMonthFromUnix(dates[index])}</div>
+				{/if}
+				{getTimeFomUnix(dates[index])}
+				{#each Object.values(ParameterNames) as parameter}
+					{getDataAndUnit($current_data_kv.features[0], parameter, index) + ' '}
+				{/each}
+			</div>
+		{/each}
+	</div>
 {/if}
