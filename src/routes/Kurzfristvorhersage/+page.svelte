@@ -47,9 +47,9 @@
 {#if $current_data_kv}
 	<div class="flex flex-col mx-auto container">
 		{#each $current_data_kv.timestamps as _, index}
-			<div>
+			<div class="border-cyan-700 border">
 				{#if getTimeFomUnix(dates[index]) === '00:00'}
-					<div>{getDDMonthFromUnix(dates[index])}</div>
+					<div class="bg-gray-200">{getDDMonthFromUnix(dates[index])}</div>
 				{/if}
 				{getTimeFomUnix(dates[index])}
 				{#each Object.values(ParameterNames) as parameter}
