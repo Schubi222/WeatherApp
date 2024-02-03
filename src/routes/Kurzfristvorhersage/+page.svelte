@@ -4,6 +4,8 @@
 	import { ParameterNames } from '$lib/type/Kurzfrist';
 	import { getDDMonthFromUnix, getTimeFomUnix } from '$lib/utils/Time/timeFormat';
 
+	let params_to_display: string[] = ['mnt2m', 'mxt2m', ParameterNames.RELATIVE_HUMIDITY];
+
 	const dates: number[] = [];
 	$: console.log($current_data_kv);
 	$: if ($current_data_kv?.timestamps?.length) {
@@ -52,7 +54,7 @@
 					<div class="bg-gray-200">{getDDMonthFromUnix(dates[index])}</div>
 				{/if}
 				{getTimeFomUnix(dates[index])}
-				{#each Object.values(ParameterNames) as parameter}
+				{#each params_to_display as parameter}
 					{getDataAndUnit($current_data_kv.features[0], parameter, index) + ' '}
 				{/each}
 			</div>

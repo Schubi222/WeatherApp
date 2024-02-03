@@ -22,7 +22,7 @@ export type FeaturesKV = {
 export enum ParameterNames {
 	mnt2m = 'mnt2m',
 	mxt2m = 'mxt2m',
-	rh2m = 'rh2m',
+	RELATIVE_HUMIDITY = 'rh2m',
 	rr_acc = 'rr_acc',
 	snow = 'snow',
 	sundur_acc = 'sundur_acc',
