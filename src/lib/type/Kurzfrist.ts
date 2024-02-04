@@ -20,15 +20,15 @@ export type FeaturesKV = {
 };
 //TODO:THINK OF HOW THIS SHOULD WORK WITH CHANGING NAMES?
 export enum ParameterNames {
-	mnt2m = 'mnt2m',
-	mxt2m = 'mxt2m',
+	MIN_TEMPERATURE = 'mnt2m',
+	MAX_TEMPERATURE = 'mxt2m',
 	RELATIVE_HUMIDITY = 'rh2m',
-	rr_acc = 'rr_acc',
-	snow = 'snow',
-	sundur_acc = 'sundur_acc',
-	t2m = 't2m',
-	u10m = 'u10m',
-	vgust = 'vgust'
+	TOTAL_RAIN = 'rr_acc',
+	SNOW = 'snow',
+	SUN_DURATION = 'sundur_acc',
+	TEMPERATURE = 't2m',
+	WIND_SPEED = 'u10m',
+	MAX_WIND_SPEED = 'vgust'
 }
 
 type ParameterNamesKV = {
