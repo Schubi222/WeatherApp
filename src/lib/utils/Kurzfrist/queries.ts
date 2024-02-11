@@ -25,9 +25,9 @@ export async function fetchData(
 					error: 'Die Daten konnten nicht geladen werden. Bitte probieren sie es später erneut.'
 				};
 			}
-			const temp = await value.json();
+			const data = await value.json();
 			return {
-				data: temp
+				...data
 			};
 		})
 		.catch((e) => {

@@ -20,7 +20,7 @@
 		loading = true;
 		const data = await fetchData(base, version, params);
 		if (data?.error) error = data.error;
-		else current_data_kv.set(data.data);
+		else current_data_kv.set(data);
 		loading = false;
 	});
 </script>
