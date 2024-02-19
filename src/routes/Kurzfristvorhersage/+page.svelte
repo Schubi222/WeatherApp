@@ -3,6 +3,7 @@
 	import type { FeaturesKV, ParameterNamesKVStrings } from '$lib/type/Kurzfrist';
 	import { ParameterNames } from '$lib/type/Kurzfrist';
 	import { getDDMonthFromUnix, getTimeFomUnix } from '$lib/utils/Time/timeFormat';
+	import WeathCard from '$lib/components/WeathCard.svelte';
 
 	let params_to_display: string[] = ['mnt2m', 'mxt2m', ParameterNames.RELATIVE_HUMIDITY];
 
@@ -46,18 +47,21 @@
 	};
 </script>
 
+<WeathCard />
 {#if $current_data_kv}
-	<div class="flex flex-col mx-auto container">
-		{#each $current_data_kv.timestamps as _, index}
-			<div class="border-cyan-700 border">
-				{#if getTimeFomUnix(dates[index]) === '00:00'}
-					<div class="bg-gray-200">{getDDMonthFromUnix(dates[index])}</div>
-				{/if}
-				{getTimeFomUnix(dates[index])}
-				{#each params_to_display as parameter}
-					{getDataAndUnit($current_data_kv.features[0], parameter, index) + ' '}
-				{/each}
-			</div>
-		{/each}
+	<div class="container mx-auto flex flex-col w-full h-full m-auto">
+		<div class="flex flex-col mx-auto container">
+			{#each $current_data_kv.timestamps as _, index}
+				<div class="border-cyan-700 border">
+					{#if getTimeFomUnix(dates[index]) === '00:00'}
+						<div class="bg-gray-200">{getDDMonthFromUnix(dates[index])}</div>
+					{/if}
+					{getTimeFomUnix(dates[index])}
+					{#each params_to_display as parameter}
+						{getDataAndUnit($current_data_kv.features[0], parameter, index) + ' '}
+					{/each}
+				</div>
+			{/each}
+		</div>
 	</div>
 {/if}
