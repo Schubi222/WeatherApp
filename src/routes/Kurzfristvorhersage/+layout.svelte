@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { error_layout, loading_layout } from '$lib/store/layoutStore';
+	import { error_layout } from '$lib/store/layoutStore';
 	import Error from '$lib/components/Error.svelte';
 	import Loading from '$lib/components/Loading.svelte';
 	import { current_data_kv } from '$lib/store/KurzfristforhersageStore';
-	import { constructUrl, fetchData } from '$lib/utils/Kurzfrist/queries';
+	import { fetchData } from '$lib/utils/Kurzfrist/queries';
 	let error = '';
 	let loading = true;
 	// const params = ['FFX', 'RSD', 'RSX', 'SCH', 'SUX', 'VKM', 'WSK'];

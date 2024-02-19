@@ -1,16 +1,19 @@
-import { current_data_kv } from '$lib/store/KurzfristforhersageStore';
 import type { ParameterNames } from '$lib/type/Kurzfrist';
+import moment from 'moment';
 
 export async function fetchData(
 	base: string,
 	version: string,
 	params: ParameterNames[] | string[]
 ) {
+	const today = moment().subtract(2, 'hours');
+	const tomorrow = moment().add(1, 'days');
+
 	const url = constructUrl(base, version, 'timeseries', 'forecast', 'nwp-v1-1h-2500m', params, [
 		'lat_lon=47.065%2C15.444',
 		'forecast_offset=0',
-		'start=2024-01-21T00%3A00',
-		'end=2024-02-22T00%3A00',
+		`start=${today.format('YYYY-MM-DDTHH:mm')}`,
+		`end=${tomorrow.format('YYYY-MM-DDTHH:mm')}`,
 		'output_format=geojson'
 	]);
 	if (!url) {
