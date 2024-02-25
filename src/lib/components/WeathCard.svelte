@@ -9,6 +9,8 @@
 </script>
 
 <div class="container w-full h-48 bg-gradient-to-br from-violet-950 to-purple-500 mx-auto">
-	<div class="text-blue-100 font-bold text-xl">Graz, Austria</div>
-	<div class="text-blue-200 font-bold text-lg">{moment().format('dddd, DD MMMM YYYY HH:mm')}</div>
+	<div class="text-blue-100 font-bold text-xl p-3">Graz, Austria</div>
+	<div class="text-blue-200 font-bold text-lg px-3">
+		{moment().format('dddd, DD MMMM YYYY HH:mm')}
+	</div>
 </div>
