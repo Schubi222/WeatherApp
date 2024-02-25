@@ -1,11 +1,11 @@
 <script lang="ts">
 	import moment from 'moment';
 
-	export let temperature;
+	/*	export let temperature;
 	export let time;
 	export let snow;
 	export let rain;
-	export let sun;
+	export let sun;*/
 </script>
 
 <div class="container w-full h-48 bg-gradient-to-br from-violet-950 to-purple-500 mx-auto">
